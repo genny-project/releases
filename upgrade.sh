@@ -19,16 +19,16 @@ function git_project {
 
   # if the project has already been cloned, we update it
   if [ -d $project ]; then
-    $(cd ./${project} > /dev/null 2>&1 && git add . > /dev/null 2>&1)
-    $(cd ./${project} > /dev/null 2>&1 && git stash > /dev/null 2>&1 ) # we stash all the current changes (maven does funny things)
-    $(cd ./${project} > /dev/null 2>&1 && git pull  > /dev/null 2>&1) # we update the repo
+    $(cd ./${project} && git add .)
+    $(cd ./${project} && git stash) # we stash all the current changes (maven does funny things)
+    $(cd ./${project} && git pull) # we update the repo
   else
     # otherwise we clone it
-    git clone https://github.com/genny-project/${project}  > /dev/null 2>&1
+    git clone https://github.com/genny-project/${project}
   fi
 
   # we checkout the right tag matching the genny version
-  $(cd ./${project} > /dev/null 2>&1 && git checkout tags/${genny_version} -b ${genny_version}  > /dev/null 2>&1 ) # we update the repo
+  $(cd ./${project} && git checkout tags/${genny_version} -b ${genny_version}) # we update the repo
 }
 
 # function help to git pull all the required projects
@@ -99,11 +99,11 @@ function build_project {
   build_docker=$2
 
   # we change the directory to the project we want to build and build it
-  $(cd ./${project} > /dev/null 2>&1 && ./build.sh > /dev/null 2>&1 )
+  $(cd ./${project} && ./build.sh)
 
   # if the boolean is true, we build the docker image
   if [ "$build_docker" = true ] ; then
-    $(cd ./${project} > /dev/null 2>&1 && ./build-docker.sh  > /dev/null 2>&1 )
+    $(cd ./${project} && ./build-docker.sh)
   fi
 }
 
