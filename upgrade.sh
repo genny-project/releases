@@ -105,7 +105,7 @@ function build_project {
 
   # we change the directory to the project we want to build and build it
   cd ./${project}
-  ./build.sh
+  ./build.sh >/dev/null
 
   # if the boolean is true, we build the docker image
   if [ "$build_docker" = true ] ; then
