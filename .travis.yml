@@ -5,4 +5,6 @@ services:
 
 language: bash
 
-script: docker build .
+script:
+  - while sleep 1m; do echo "=====[ $SECONDS seconds still running ]====="; done &
+  - docker build .

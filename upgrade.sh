@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias	mvn='mvn --quiet'
+
 # first parameter is the version of genny to checkout.
 # we check the user has passed at least 1 argument
 
