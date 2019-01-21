@@ -23,4 +23,4 @@ ENV TERM xterm
 RUN cd genny-workspace && /upgrade.sh $GENNY_VERSION
 
 # Zip up the release
-RUN zip -r release.zip genny-workspace
+RUN zip -q -r release.zip genny-workspace

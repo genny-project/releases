@@ -19,6 +19,8 @@ function git_project {
   # project name is the first argument passed to this function
   project=$1
 
+  echo "Cloning $project";
+
   # if the project has already been cloned, we update it
   if [ -d $project ]; then
     cd ./${project}
@@ -40,65 +42,40 @@ function git_project {
 # function help to git pull all the required projects
 function git_projects {
 
-  echo '#                         (0%)\r'
   git_project genny-main
-  echo '#                         (2%)\r'
   git_project keisha
-  echo '#                         (4%)\r'
   git_project bridge
-  echo '#                         (6%)\r'
   git_project messages
-  echo '##                        (8%)\r'
   git_project payments
-  echo '##                        (10%)\r'
   git_project rulesservice
-  echo '##                        (12%)\r'
   git_project social
-  echo '##                        (14%)\r'
   git_project gennyql
-  echo '##                        (16%)\r'
   git_project genny-verticle
-  echo '##                        (18%)\r'
   git_project keycloak
-  echo '###                       (20%)\r'
   git_project keycloak-themes
-  echo '###                       (22%)\r'
   git_project kie-client
-  echo '###                       (24%)\r'
   git_project qwanda
-  echo '###                       (26%)\r'
   git_project qwanda-utils
-  echo '###                       (28%)\r'
   git_project genny-verticle-rules
-  echo '#####                     (30%)\r'
   git_project genny-rules
-  echo '#####                     (32%)\r'
   git_project qwanda-services
-  echo '#####                     (34%)\r'
   git_project wildfly-qwanda-service
-  echo '#####                     (36%)\r'
   git_project wildfly-rulesservice
-  echo '######                    (38%)\r'
   git_project alyson-v2
-  echo '#######                   (40%)\r'
   git_project alyson-v3
-  echo '########                  (42%)\r'
   git_project qwanda-ql
-  echo '#########                 (44%)\r'
   git_project uppy
-  echo '##########                (46%)\r'
   git_project in-app-calling
-  echo '###########               (48%)\r'
   git_project prj_genny
-  echo '############              (49%)\r'
   git_project layouts
-  echo '############              (50%)\r'
 }
 
 # function help to build a project
 function build_project {
   # first argument is the project to build
   project=$1
+
+  echo "Building $project"
 
   # second argument is a boolean defining whether or not we need to build the docker image too
   build_docker=$2
@@ -119,33 +96,14 @@ function build_project {
 function build_genny {
 
   build_project qwanda false
-  echo '##############            (55%)\r'
-
   build_project qwanda-utils false
-  echo '################          (60%)\r'
-
   build_project qwanda-services false
-  echo '##################        (65%)\r'
-
   build_project genny-verticle-rules false
-  echo '###################       (70%)\r'
-
   build_project wildfly-qwanda-service true
-  echo '####################      (75%)\r'
-
   build_project genny-rules false
-  echo '#####################     (80%)\r'
-
-  echo "This next step could take a while. Please wait." # bridge takes a long time to build
-
   build_project bridge true
-  echo '######################    (85%)\r'
-
   build_project messages true
-  echo '#######################   (90%)\r'
-
   build_project rulesservice true
-  echo '##########################(100%)\r'
 }
 
 echo "Upgrading Genny to version ${genny_version}. Please wait, this could take up to 30 minutes..."
