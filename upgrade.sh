@@ -34,59 +34,59 @@ function git_project {
 # function help to git pull all the required projects
 function git_projects {
 
-  echo -ne '#                         (0%)\r'
+  echo '#                         (0%)\r'
   git_project genny-main
-  echo -ne '#                         (2%)\r'
+  echo '#                         (2%)\r'
   git_project keisha
-  echo -ne '#                         (4%)\r'
+  echo '#                         (4%)\r'
   git_project bridge
-  echo -ne '#                         (6%)\r'
+  echo '#                         (6%)\r'
   git_project messages
-  echo -ne '##                        (8%)\r'
+  echo '##                        (8%)\r'
   git_project payments
-  echo -ne '##                        (10%)\r'
+  echo '##                        (10%)\r'
   git_project rulesservice
-  echo -ne '##                        (12%)\r'
+  echo '##                        (12%)\r'
   git_project social
-  echo -ne '##                        (14%)\r'
+  echo '##                        (14%)\r'
   git_project gennyql
-  echo -ne '##                        (16%)\r'
+  echo '##                        (16%)\r'
   git_project genny-verticle
-  echo -ne '##                        (18%)\r'
+  echo '##                        (18%)\r'
   git_project keycloak
-  echo -ne '###                       (20%)\r'
+  echo '###                       (20%)\r'
   git_project keycloak-themes
-  echo -ne '###                       (22%)\r'
+  echo '###                       (22%)\r'
   git_project kie-client
-  echo -ne '###                       (24%)\r'
+  echo '###                       (24%)\r'
   git_project qwanda
-  echo -ne '###                       (26%)\r'
+  echo '###                       (26%)\r'
   git_project qwanda-utils
-  echo -ne '###                       (28%)\r'
+  echo '###                       (28%)\r'
   git_project genny-verticle-rules
-  echo -ne '#####                     (30%)\r'
+  echo '#####                     (30%)\r'
   git_project genny-rules
-  echo -ne '#####                     (32%)\r'
+  echo '#####                     (32%)\r'
   git_project qwanda-services
-  echo -ne '#####                     (34%)\r'
+  echo '#####                     (34%)\r'
   git_project wildfly-qwanda-service
-  echo -ne '#####                     (36%)\r'
+  echo '#####                     (36%)\r'
   git_project wildfly-rulesservice
-  echo -ne '######                    (38%)\r'
+  echo '######                    (38%)\r'
   git_project alyson-v2
-  echo -ne '#######                   (40%)\r'
+  echo '#######                   (40%)\r'
   git_project alyson-v3
-  echo -ne '########                  (42%)\r'
+  echo '########                  (42%)\r'
   git_project qwanda-ql
-  echo -ne '#########                 (44%)\r'
+  echo '#########                 (44%)\r'
   git_project uppy
-  echo -ne '##########                (46%)\r'
+  echo '##########                (46%)\r'
   git_project in-app-calling
-  echo -ne '###########               (48%)\r'
+  echo '###########               (48%)\r'
   git_project prj_genny
-  echo -ne '############              (49%)\r'
+  echo '############              (49%)\r'
   git_project layouts
-  echo -ne '############              (50%)\r'
+  echo '############              (50%)\r'
 }
 
 # function help to build a project
@@ -111,33 +111,33 @@ function build_project {
 function build_genny {
 
   build_project qwanda false
-  echo -ne '##############            (55%)\r'
+  echo '##############            (55%)\r'
 
   build_project qwanda-utils false
-  echo -ne '################          (60%)\r'
+  echo '################          (60%)\r'
 
   build_project qwanda-services false
-  echo -ne '##################        (65%)\r'
+  echo '##################        (65%)\r'
 
   build_project genny-verticle-rules false
-  echo -ne '###################       (70%)\r'
+  echo '###################       (70%)\r'
 
   build_project wildfly-qwanda-service true
-  echo -ne '####################      (75%)\r'
+  echo '####################      (75%)\r'
 
   build_project genny-rules false
-  echo -ne '#####################     (80%)\r'
+  echo '#####################     (80%)\r'
 
   echo "This next step could take a while. Please wait." # bridge takes a long time to build
 
   build_project bridge true
-  echo -ne '######################    (85%)\r'
+  echo '######################    (85%)\r'
 
   build_project messages true
-  echo -ne '#######################   (90%)\r'
+  echo '#######################   (90%)\r'
 
   build_project rulesservice true
-  echo -ne '##########################(100%)\r'
+  echo '##########################(100%)\r'
 }
 
 echo "Upgrading Genny to version ${genny_version}. Please wait, this could take up to 30 minutes..."
