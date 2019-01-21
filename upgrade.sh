@@ -19,16 +19,20 @@ function git_project {
 
   # if the project has already been cloned, we update it
   if [ -d $project ]; then
-    $(cd ./${project} && git add .)
-    $(cd ./${project} && git stash) # we stash all the current changes (maven does funny things)
-    $(cd ./${project} && git pull) # we update the repo
+    cd ./${project}
+    git add .
+    git stash # we stash all the current changes (maven does funny things)
+    git pull # we update the repo
+    cd ../
   else
     # otherwise we clone it
     git clone https://github.com/genny-project/${project}
   fi
 
   # we checkout the right tag matching the genny version
-  $(cd ./${project} && git checkout tags/${genny_version} -b ${genny_version}) # we update the repo
+  cd ./${project}
+  git checkout tags/${genny_version} -b ${genny_version} # we update the repo
+  cd ../
 }
 
 # function help to git pull all the required projects
@@ -91,7 +95,6 @@ function git_projects {
 
 # function help to build a project
 function build_project {
-
   # first argument is the project to build
   project=$1
 
@@ -99,12 +102,15 @@ function build_project {
   build_docker=$2
 
   # we change the directory to the project we want to build and build it
-  $(cd ./${project} && ./build.sh)
+  cd ./${project}
+  ./build.sh
 
   # if the boolean is true, we build the docker image
   if [ "$build_docker" = true ] ; then
-    $(cd ./${project} && ./build-docker.sh)
+    ./build-docker.sh
   fi
+
+  cd ../
 }
 
 # function help to build all the required projects
