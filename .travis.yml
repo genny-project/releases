@@ -7,4 +7,5 @@ language: bash
 
 script:
   - while sleep 1m; do echo "=====[ $SECONDS seconds still running ]====="; done &
-  - docker build .
+  - docker build -t genny-release .
+  - docker run --env GENNY_VERSION=2.0.1 --env AWS_ACCESS_KEY_ID --env AWS_SECRET_ACCESS_KEY -v /var/run/docker.sock:/var/run/docker.sock genny-release
