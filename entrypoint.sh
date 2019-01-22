@@ -1,4 +1,5 @@
 mkdir genny-workspace
+ls
 cd genny-workspace && /upgrade.sh $GENNY_VERSION
 
 # Zip up the release
