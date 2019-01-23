@@ -95,7 +95,7 @@ function build_project {
 # function help to build all the required projects
 function build_genny {
   echo "Building Genny"
-  # build_project qwanda false
+  build_project qwanda false
   # build_project qwanda-utils false
   # build_project qwanda-services false
   # build_project genny-verticle-rules false

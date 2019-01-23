@@ -1,7 +1,8 @@
-cd genny-workspace && /upgrade.sh $GENNY_VERSION
+mkdir genny-$GENNY_VERSION
+cd genny-$GENNY_VERSION && /upgrade.sh $GENNY_VERSION
 
 # Zip up the release
-zip -q -r /release.zip /genny-workspace/
+zip -q -r /release.zip /genny-$GENNY_VERSION/
 
 # Name the release
 mv /release.zip /release.$GENNY_VERSION.zip
