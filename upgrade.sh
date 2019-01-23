@@ -43,31 +43,31 @@ function git_project {
 function git_projects {
 
   git_project genny-main
-  # git_project keisha
-  # git_project bridge
-  # git_project messages
-  # git_project payments
-  # git_project rulesservice
-  # git_project social
-  # git_project gennyql
-  # git_project genny-verticle
-  # git_project keycloak
-  # git_project keycloak-themes
-  # git_project kie-client
-  # git_project qwanda
-  # git_project qwanda-utils
-  # git_project genny-verticle-rules
-  # git_project genny-rules
-  # git_project qwanda-services
-  # git_project wildfly-qwanda-service
-  # git_project wildfly-rulesservice
-  # git_project alyson-v2
-  # git_project alyson-v3
-  # git_project qwanda-ql
-  # git_project uppy
-  # git_project in-app-calling
-  # git_project prj_genny
-  # git_project layouts
+  git_project keisha
+  git_project bridge
+  git_project messages
+  git_project payments
+  git_project rulesservice
+  git_project social
+  git_project gennyql
+  git_project genny-verticle
+  git_project keycloak
+  git_project keycloak-themes
+  git_project kie-client
+  git_project qwanda
+  git_project qwanda-utils
+  git_project genny-verticle-rules
+  git_project genny-rules
+  git_project qwanda-services
+  git_project wildfly-qwanda-service
+  git_project wildfly-rulesservice
+  git_project alyson-v2
+  git_project alyson-v3
+  git_project qwanda-ql
+  git_project uppy
+  git_project in-app-calling
+  git_project prj_genny
+  git_project layouts
 }
 
 # function help to build a project
@@ -96,14 +96,14 @@ function build_project {
 function build_genny {
   echo "Building Genny"
   build_project qwanda false
-  # build_project qwanda-utils false
-  # build_project qwanda-services false
-  # build_project genny-verticle-rules false
-  # build_project wildfly-qwanda-service true
-  # build_project genny-rules false
-  # build_project bridge true
-  # build_project messages true
-  # build_project rulesservice true
+  build_project qwanda-utils false
+  build_project qwanda-services false
+  build_project genny-verticle-rules false
+  build_project wildfly-qwanda-service true
+  build_project genny-rules false
+  build_project bridge true
+  build_project messages true
+  build_project rulesservice true
 }
 
 echo "Upgrading Genny to version ${genny_version}. Please wait, this could take up to 30 minutes..."
